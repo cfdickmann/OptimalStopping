@@ -1,0 +1,4 @@
+Package: OptimalStopping
+Type: Package
+Title: Model free optimal stopping problem solver
+Version: 0.1
