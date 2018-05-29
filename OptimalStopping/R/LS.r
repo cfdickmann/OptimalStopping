@@ -1,6 +1,6 @@
 
 #' Longstaff Schwartz
-#'
+#' Longstaff, Francis A., and Eduardo S. Schwartz. "Implementation of the Longstaff-Schwartz interest rate model." The Journal of Fixed Income 3.2 (1993): 7-14.
 #' @param x A number
 #' @param y A number
 #' @return The sum of \code{x} and \code{y}

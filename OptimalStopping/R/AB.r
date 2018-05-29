@@ -19,6 +19,7 @@ BS <- function(S0, MM, dt, r, div, sigma)
   return (p)
 }
 
+#Andersen, Leif, and Mark Broadie. "Primal-dual simulation algorithm for pricing multidimensional American options." Management Science 50.9 (2004): 1222-1234.
  #' @export
  AndersenBroadie<-function(paths, payoffs, option="put", onlyUseInTheMoneyPaths=FALSE, verbose=FALSE, testRegressionPaths=FALSE, dt, r, div, sigma, strike)
  {
