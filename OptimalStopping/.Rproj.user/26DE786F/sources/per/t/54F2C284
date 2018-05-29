@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1526312820511.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "273253496",
+    "id" : "54F2C284",
+    "lastKnownWriteTime" : 1526836294,
+    "last_content_update" : 1526836294025,
+    "path" : "~/OptimalStopping/OptimalStopping/R/Bermudan2D.r",
+    "project_path" : "R/Bermudan2D.r",
+    "properties" : {
+        "cursorPosition" : "22,13",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

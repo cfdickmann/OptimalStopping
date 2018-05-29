@@ -1,3 +1,12 @@
+
+#' Longstaff Schwartz
+#'
+#' @param x A number
+#' @param y A number
+#' @return The sum of \code{x} and \code{y}
+#' @examples
+#' add(1, 1)
+#' add(10, 1)
 #' @export
 LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbose=FALSE, testRegressionPaths=FALSE)
 {
@@ -5,6 +14,8 @@ LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbos
   M <- length(payoffs[[1]])
 
   contImp<-payoffs[[N]]
+
+  reg<-list()
 
   for(i in ((N-1):1))
   {
@@ -19,6 +30,8 @@ LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbos
 
     ind<-(payoffs[[i]]>0)*(1:M) * ((1:M) %% 2==1)
     ind<-ind[!ind %in% c(0)]
+    if(length(ind)==0)
+      ind<-train
 
     pp<-paths[[i]]
 
@@ -31,15 +44,20 @@ LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbos
       for(j in (k : ncol(paths[[i]])))
         xx<-cbind(xx,(paths[[i]][ , k]) * (paths[[i]][ , j]))
 
-    xframe<-data.frame(xx)
+    for(k in (1 : ncol(paths[[i]])))
+      for(j in (k : ncol(paths[[i]])))
+        for(r in (j : ncol(paths[[i]])))
+          xx<-cbind(xx,(paths[[i]][ , k]) * (paths[[i]][ , j])* (paths[[i]][ , r]))
+
+        xframe<-data.frame(x1=xx[,1], x2=xx[,2], x3=xx[,3], x4=xx[,4])
 
     if(onlyUseInTheMoneyPaths)
-      reg<-lm(contImp ~ ., xframe, subset=ind)
+      reg[[i]]<-lm(contImp ~ ., xframe, subset=ind)
     else
-      reg<-lm(contImp ~ ., xframe, subset=train)
+      reg[[i]]<-lm(contImp ~ ., xframe, subset=train)
 
     #Predict contImp for next (proceeding) time step
-    if(i>1) continuationValues<-predict(reg, xframe)
+    if(i>1) continuationValues<-predict(reg[[i]], xframe)
       else continuationValues<-mean(contImp)
 
     if(testRegressionPaths)
@@ -51,5 +69,8 @@ LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbos
     }
   }
 
-  return (mean(contImp[test]))
+  results<-list()
+  results[[1]]<-mean(contImp[test])
+  results[[2]]<-reg
+  return (results)
 }

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1527501512179.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3867339608",
+    "id" : "CEE24187",
+    "lastKnownWriteTime" : 1527602554,
+    "last_content_update" : 1527602554858,
+    "path" : "~/OptimalStopping/OptimalStopping/R/AB.r",
+    "project_path" : "R/AB.r",
+    "properties" : {
+        "cursorPosition" : "24,74",
+        "scrollLine" : "16",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

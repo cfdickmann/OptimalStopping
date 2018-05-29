@@ -1,5 +1,5 @@
 #' @export
-BSOption2D<-function(N,dt,sigma,r,div,strike,S0,M, payoff="call")
+BSOption2D<-function(N, dt, sigma, r, div, strike, S0, M, option="call")
 {
   paths<-list()
   payoffs<-list()
@@ -17,12 +17,12 @@ BSOption2D<-function(N,dt,sigma,r,div,strike,S0,M, payoff="call")
 
   for(i in 1:N)
   {
-    if(payoff=="call")
+    if(option=="call")
       payoffs[[i]]<- exp(-dt*(i-1) * r) * pmax( apply(FUN=max, X=paths[[i]], MARGIN=1) - strike, 0)
 
-    if(payoff=="put")
+    if(option=="put")
       payoffs[[i]]<- exp(-dt*(i-1) * r) * pmax( strike - apply(FUN=max, X=paths[[i]], MARGIN=1), 0)
   }
 
-  return (LongstaffSchwartz(paths,payoffs, verbose=FALSE, onlyUseInTheMoneyPaths = FALSE, testRegressionPaths=TRUE))
+  return (LongstaffSchwartz(paths,payoffs, verbose=FALSE, onlyUseInTheMoneyPaths = FALSE, testRegressionPaths=TRUE)[[1]])
 }

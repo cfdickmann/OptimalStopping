@@ -1,5 +1,5 @@
 #' @export
-BSOption1D<-function(N,dt,sigma,r,div,strike,S0,M, payoff="call")
+BSOption1D<-function(N, dt, sigma, r, div, strike, S0, M, option="call")
 {
   paths<-list()
   payoffs<-list()
@@ -8,6 +8,7 @@ BSOption1D<-function(N,dt,sigma,r,div,strike,S0,M, payoff="call")
 
   set.seed(1)
 
+  #Simulating paths
   for(i in 2:N)
   {
     mm<-rnorm(M/2, mean=0, sd=1)
@@ -15,14 +16,21 @@ BSOption1D<-function(N,dt,sigma,r,div,strike,S0,M, payoff="call")
     paths[[i]]<- paths[[i-1]] * exp(dt * (r - div -0.5 * sigma * sigma) + sqrt(dt) * sigma * matrix(mm,ncol=1))
   }
 
+  #Moment matching
+  for(i in 2:N)
+  {
+    factor<-S0*exp((i-1)*dt*(r-div))/mean(paths[[i]])
+    paths[[i]]<- paths[[i]]/factor
+  }
+
   for(i in 1:N)
   {
-    if(payoff=="put")
+    if(option=="put")
       payoffs[[i]]<- exp(-(i-1) * dt * r)*pmax(strike-paths[[i]], 0)
 
-    if(payoff=="call")
+    if(option=="call")
       payoffs[[i]]<- exp(-(i-1) * dt * r)*pmax(paths[[i]]-strike, 0)
   }
 
-  return (LongstaffSchwartz(paths, payoffs, verbose=FALSE, onlyUseInTheMoneyPaths = TRUE, testRegressionPaths=TRUE))
-}
+  return (AndersenBroadie(paths, payoffs, option,  onlyUseInTheMoneyPaths = TRUE, verbose=FALSE, testRegressionPaths=TRUE, dt, r, div, sigma, strike))
+     }

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1526745989923.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "572514746",
+    "id" : "42CFD87E",
+    "lastKnownWriteTime" : 1527588544,
+    "last_content_update" : 1527588544050,
+    "path" : "~/OptimalStopping/OptimalStopping/R/AmericanPut1D.r",
+    "project_path" : "R/AmericanPut1D.r",
+    "properties" : {
+        "cursorPosition" : "21,39",
+        "scrollLine" : "5"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
