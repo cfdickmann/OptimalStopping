@@ -1,8 +1,6 @@
 
 #' @title BSOption2D
-#' @description Lower and upper bound for a two-dimensional stopping problem in case of geometric Brownian Motion as in Glasserman (2013)
-#' and plain vanilla style payoffs, i.e. call or put.
-#' @references Andersen, Leif, and Mark Broadie. "Primal-dual simulation algorithm for pricing multidimensional American options." Management Science 50.9 (2004): 1222-1234.
+#' @description Lower and upper bound to a two-dimensional stopping problem in case of geometric Brownian Motion and a plain vanilla payoff (i.e. call or put)as in Glasserman (2013).
 #' @references Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
 #' @references Glasserman, Paul. Monte Carlo methods in financial engineering. Vol. 53. Springer Science & Business Media, 2013.
 #' @param N The number of time steps
@@ -12,12 +10,12 @@
 #' @param div The dividend yield
 #' @param strike The strike price
 #' @param S0 The spot
-#' @param M The number of simulations (The number of subsimulations in the Andersen Broadie algorithm is 1000 times smaller)
+#' @param M The number of simulations
 #' @param option The type of option ("call" of "put")
-#' @return A lower and an upper bound for the true value of the optimal stopping problem
+#' @return A lower bound to the true value of the optimal stopping problem
 #' @examples
-#' #Longstaff & Schwartz example
-#' lower<-BSOption2D(10, 1.0/3.0, 0.2, 0.05, 0.1, 100, 90, 1e5, option="call")
+#' #Glasserman example
+#' lower <- BSOption2D(10, 1.0/3.0, 0.2, 0.05, 0.1, 100, 90, 1e5, option="call")
 #' print(lower)
 #' @export
 BSOption2D<-function(N, dt, sigma, r, div, strike, S0, M, option="call")

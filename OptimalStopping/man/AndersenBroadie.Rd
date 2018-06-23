@@ -2,7 +2,7 @@
 % Please edit documentation in R/AB.r
 \name{AndersenBroadie}
 \alias{AndersenBroadie}
-\title{Andersen Broadie algorithm (martingales from continuation values)}
+\title{Andersen % Broadie algorithm (martingales from continuation values)}
 \usage{
 AndersenBroadie(paths, payoffs, option = "put", dt, r, div, sigma, strike)
 }
@@ -27,7 +27,7 @@ AndersenBroadie(paths, payoffs, option = "put", dt, r, div, sigma, strike)
 A lower and an upper bound for the solution to the optimal stopping problem
 }
 \description{
-Andersen Brodie algorithm (martingales from continuation values) for one-dimensional geometric Brownian Motion in case of a plain vanilla payoff
+Andersen & Brodie algorithm (martingales from continuation values) for one-dimensional geometric Brownian Motion in case of a plain vanilla payoff
 }
 \examples{
 #Andersen & Broadie algorithm

@@ -1,13 +1,13 @@
-#' @title  Longstaff Schwartz
-#' @description The model free Longstaff Schwartz algorithm for lower bounds of optimal stopping problems.
+#' @title Longstaff & Schwartz algorithm
+#' @description The model-free Longstaff & Schwartz algorithm for lower bounds to optimal stopping problems.
 #' @references Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
 #' @param paths The paths (i.e. trajectories) to base the stopping decision on. In general, this can be any information useful for the stopping decision.
 #' @param payoffs The payoffs realized along the paths (first argument)
 #' @param onlyUseInTheMoneyPaths Whether to only use in-the-money paths for regression
 #' @param verbose Whether to print an output
-#' @param testRegressionPaths Whether to test paths based on the new rule before preseecing to the previous time step
+#' @param testRegressionPaths Whether to test paths based on the new rule before preceeding to the previous time step
 #' @param returnContinuationValues Whether to return the approximations to the continuation values as well.
-#' @return A lower bound for the true value of the optimal stopping problem
+#' @return A lower bound to the true value of the optimal stopping problem
 #' @examples
 #' #Longstaff & Schwartz algorithm
 #' paths<-list()
@@ -78,11 +78,13 @@ LongstaffSchwartz<-function(paths, payoffs, onlyUseInTheMoneyPaths=FALSE, verbos
 
     if(ncol(paths[[i]])==1)
     {
+      #Fifth order polynomial and payoff as basis function set for the one-dimensional case
       pp<-paths[[i]][, 1]
       xframe<-data.frame(x1=payoffs[[i]], x2=pp, x3=pp^2, x4=pp^3, x5=pp^4, x6=pp^5)
     }
     else
     {
+      #Second order polynomial and payoff as basis function set for the multidimensional case
       xx<-matrix(payoffs[[i]], ncol=1)
 
       for(k in (1:ncol(paths[[i]])))

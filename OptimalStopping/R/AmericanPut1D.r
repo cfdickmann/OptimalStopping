@@ -1,6 +1,5 @@
 #' @title BSOption1D
-#' @description Lower and upper bound for a one-dimensional stopping problem in case of geometric Brownian Motion as in Longstaff & Schwartz (2001)
-#' and plain vanilla style payoffs, i.e. call or put.
+#' @description Lower and upper bound for a one-dimensional stopping problem in case of geometric Brownian Motion and a plain vanilla payoff (i.e. call or put) as in Longstaff & Schwartz (2001).
 #' @references Andersen, Leif, and Mark Broadie. "Primal-dual simulation algorithm for pricing multidimensional American options." Management Science 50.9 (2004): 1222-1234.
 #' @references Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
 #' @references Glasserman, Paul. Monte Carlo methods in financial engineering. Vol. 53. Springer Science & Business Media, 2013.
@@ -15,7 +14,7 @@
 #' @param option The type of option ("call" of "put")
 #' @return A lower and an upper bound for the true value of the optimal stopping problem
 #' @examples
-#' #Longstaff & Schwartz example from Glasserman
+#' #Longstaff & Schwartz example
 #' bounds <- BSOption1D(51, 0.02, 0.2, 0.06, 0, 40, 36, 1e5, option="put")
 #' lower <- bounds[1]
 #' upper <- bounds[2]

@@ -2,7 +2,7 @@
 % Please edit documentation in R/LS.r
 \name{LongstaffSchwartz}
 \alias{LongstaffSchwartz}
-\title{Longstaff Schwartz}
+\title{Longstaff & Schwartz algorithm}
 \usage{
 LongstaffSchwartz(paths, payoffs, onlyUseInTheMoneyPaths = FALSE,
   verbose = FALSE, testRegressionPaths = FALSE,
@@ -17,15 +17,15 @@ LongstaffSchwartz(paths, payoffs, onlyUseInTheMoneyPaths = FALSE,
 
 \item{verbose}{Whether to print an output}
 
-\item{testRegressionPaths}{Whether to test paths based on the new rule before preseecing to the previous time step}
+\item{testRegressionPaths}{Whether to test paths based on the new rule before preceeding to the previous time step}
 
 \item{returnContinuationValues}{Whether to return the approximations to the continuation values as well.}
 }
 \value{
-A lower bound for the true value of the optimal stopping problem
+A lower bound to the true value of the optimal stopping problem
 }
 \description{
-The model free Longstaff Schwartz algorithm for lower bounds of optimal stopping problems.
+The model-free Longstaff & Schwartz algorithm for lower bounds to optimal stopping problems.
 }
 \examples{
 #Longstaff & Schwartz algorithm

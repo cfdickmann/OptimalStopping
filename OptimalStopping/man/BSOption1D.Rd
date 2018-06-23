@@ -29,11 +29,10 @@ BSOption1D(N, dt, sigma, r, div, strike, S0, M, option = "call")
 A lower and an upper bound for the true value of the optimal stopping problem
 }
 \description{
-Lower and upper bound for a one-dimensional stopping problem in case of geometric Brownian Motion as in Longstaff & Schwartz (2001)
-and plain vanilla style payoffs, i.e. call or put.
+Lower and upper bound for a one-dimensional stopping problem in case of geometric Brownian Motion and a plain vanilla payoff (i.e. call or put) as in Longstaff & Schwartz (2001).
 }
 \examples{
-#Longstaff & Schwartz example from Glasserman
+#Longstaff & Schwartz example
 bounds <- BSOption1D(51, 0.02, 0.2, 0.06, 0, 40, 36, 1e5, option="put")
 lower <- bounds[1]
 upper <- bounds[2]
