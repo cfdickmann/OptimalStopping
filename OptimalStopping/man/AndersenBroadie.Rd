@@ -75,3 +75,6 @@ Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by sim
 
 Glasserman, Paul. Monte Carlo methods in financial engineering. Vol. 53. Springer Science & Business Media, 2013.
 }
+\author{
+Fabian Dickmann
+}

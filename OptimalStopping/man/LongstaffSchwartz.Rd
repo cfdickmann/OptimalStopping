@@ -65,3 +65,6 @@ print(low)
 \references{
 Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
 }
+\author{
+Fabian Dickmann
+}

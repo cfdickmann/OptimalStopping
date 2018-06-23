@@ -1,6 +1,7 @@
 #' @title Longstaff & Schwartz algorithm
 #' @description The model-free Longstaff & Schwartz algorithm for lower bounds to optimal stopping problems.
 #' @references Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
+#' @author Fabian Dickmann
 #' @param paths The paths (i.e. trajectories) to base the stopping decision on. In general, this can be any information useful for the stopping decision.
 #' @param payoffs The payoffs realized along the paths (first argument)
 #' @param onlyUseInTheMoneyPaths Whether to only use in-the-money paths for regression

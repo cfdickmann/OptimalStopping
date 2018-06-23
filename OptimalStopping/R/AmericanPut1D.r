@@ -3,6 +3,7 @@
 #' @references Andersen, Leif, and Mark Broadie. "Primal-dual simulation algorithm for pricing multidimensional American options." Management Science 50.9 (2004): 1222-1234.
 #' @references Longstaff, Francis A., and Eduardo S. Schwartz. "Valuing American options by simulation: a simple least-squares approach." The review of financial studies 14.1 (2001): 113-147.
 #' @references Glasserman, Paul. Monte Carlo methods in financial engineering. Vol. 53. Springer Science & Business Media, 2013.
+#' @author Fabian Dickmann
 #' @param N The number of time steps
 #' @param dt The size of time steps
 #' @param sigma The volatility
